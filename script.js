@@ -39,7 +39,7 @@ const personalMovieDB = {
 
 function rememberMyFilms() {
     first: for (let i = 0; i < 2; i++) {
-        const a = prompt('Назовите один из последних просмотренных фильмов', ''),
+        const a = prompt('Назовите один из последних просмотренных фильмов', '').trim(),
             b =  prompt('Насколько оцените его?', '');
             
             if (a === "" || a === null || a.length > 50 || b === "" || b === null || b.length > 50) {
