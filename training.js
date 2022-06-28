@@ -291,3 +291,134 @@ const object = {
 
 const copyObject = {...object};
 console.log(copyObject);
+
+const personalPlanPeter = {
+    name: "Peter",
+    age: "29",
+    skills: {
+        languages: ['ru', 'eng'],
+        programmingLangs: {
+            js: '20%',
+            php: '10%'
+        },
+        exp: '1 month'
+    },
+    showAgeAndLangs: function(plan) {
+        const {age} = plan;
+        const {languages} = plan.skills;
+        let a = `Мне ${age} и я влядею языками: `;
+        languages.forEach(function(lang) {
+            a += `${lang.toUpperCase()} `;
+        });
+        return a;
+    }
+    
+};
+console.log(personalPlanPeter.showAgeAndLangs(personalPlanPeter));
+
+
+
+
+function showExperience(plan) {
+    const {exp} = plan.skills;
+    return exp;
+}
+console.log(showExperience(personalPlanPeter));
+
+
+
+function showProgrammingLangs(plan) {
+    let obj = plan.skills.programmingLangs;
+    let str = '';
+    for (let key in obj) {
+            str += `Язык ${key} изучен на ${obj[key]}\n`;
+        }
+    return str;
+}
+console.log(showProgrammingLangs(personalPlanPeter));
+
+const family = ['Peter', 'Ann', 'Alex', 'Linda'];
+
+function showFamily(arr) {
+    let result = 'Семья состоит из: ';
+    if (arr.length == 0) {
+        return 'Семья пуста';
+    }
+    for (let name of arr) {
+        result += `${name} `;
+    }
+    return result;
+}
+console.log(showFamily(family));
+
+const names = ['Lena', 'Petya', 'Sasha'];
+
+function standardizeStrings(arr) {
+    for (let item of arr) {
+        console.log(`${item.toLowerCase()}`);
+    }
+}
+standardizeStrings(names);
+
+const someString = 'This is some strange string';
+
+const newString = someString.split('').reverse().join('');
+console.log(newString);
+
+someString.split([' ']);
+/* const newString = someString.reverse(); */
+console.log(someString);
+
+
+const someString = 'This is some strange string';
+
+function reverse(str) {
+    if (str != 'string') {
+        return 'Ошибка!';
+    }
+    const newString = str.split('').reverse().join('');
+    return newString;
+    }
+
+console.log(reverse(someString));
+
+
+const baseCurrencies = ['USD', 'EUR'];
+const additionalCurrencies = ['UAH', 'RUB', 'CNY'];
+const all = [...baseCurrencies, ...additionalCurrencies];
+
+/* let missingCurr = 'CNY';
+
+function curr(arg) {
+    return arg !== missingCurr;
+}
+const newAll = all.filter(curr);
+console.log(newAll);
+
+let c = 'Доступные валюты: \n';
+
+for (let value of newAll) {
+    c += `${value}\n`;
+} */
+
+/* console.log(c); */
+
+function availableCurr(arr, missingCurr) {
+    if (arr.length == 0) {
+        return 'Нет доступных валют';
+    }
+    function curr(arg) {
+        return arg !== missingCurr;
+    }
+    const newAll = all.filter(curr);
+    
+    let c = 'Доступные валюты: \n';
+
+    for (let value of newAll) {
+        c += `${value}\n`;
+    }
+    return c;
+}
+
+console.log(availableCurr(all, 'CNY'));
+
