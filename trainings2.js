@@ -91,3 +91,31 @@ function isBudgetEnough(data) {
 }
 
 console.log(isBudgetEnough(shoppingMallData));
+
+const students = ['Peter', 'Andrew', 'Ann', 'Mark', 'Josh', 'Sandra', 'Cris', 'Bernard', 'Takesi', 'Sam', 'Zlatan'];
+
+let sortStudents;
+/* sortStudents = students.sort();
+console.log(sortStudents); */
+
+function sortStudentsByGroups(arr) {
+    sortStudents = arr.sort();
+    let groupFirst = sortStudents.slice(0, 3);
+    let groupSecond = sortStudents.slice(3, 6);
+    let groupThird = sortStudents.slice(6, 9);
+    let groupForth = sortStudents.slice(9);
+    let strFourth = `Оставшиеся студенты: ${groupForth.join(', ')}`;
+    
+    let groupFinal = [groupFirst, groupSecond, groupThird, strFourth];
+
+    if (groupForth.length == 0) {
+        return [groupFirst, groupSecond, groupThird, 'Оставшиеся студенты: -'];
+    }
+
+    return groupFinal;
+
+
+    
+}
+
+console.log(sortStudentsByGroups(students));
